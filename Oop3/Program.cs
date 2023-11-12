@@ -9,12 +9,18 @@
             IKrediManager konutKrediManager = new KonutKrediManager();
 
             BasvuruManager basvuruManager = new BasvuruManager();
-            //basvuruManager.BasvuruYap(ihtiyacKrediManager);
+
+            ILoggerService databaseLogger = new DatabaseLogger();
+            ILoggerService fileLogger = new FileLogger();
+
+            List<ILoggerService> loggers = new List<ILoggerService> { databaseLogger, fileLogger };
+
+            basvuruManager.BasvuruYap(ihtiyacKrediManager,loggers);
             //basvuruManager.BasvuruYap(tasitKrediManager);
             //basvuruManager.BasvuruYap(konutKrediManager);
 
             List<IKrediManager> krediler = new List<IKrediManager>() {ihtiyacKrediManager,tasitKrediManager,konutKrediManager };
-            basvuruManager.KrediOnBilgilendirmesiYap(krediler);
+            //basvuruManager.KrediOnBilgilendirmesiYap(krediler);
 
 
         }
