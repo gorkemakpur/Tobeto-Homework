@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            MyList<string> isimler = new MyList<string>();
+            isimler.Add("merhaba");
+
+            List<string> liste = new List<string>();
+            Console.WriteLine(liste.Count);
+
         }
     }
 }
