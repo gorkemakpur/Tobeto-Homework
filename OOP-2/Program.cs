@@ -1,4 +1,4 @@
-﻿namespace OOP_2
+﻿namespace Metotlar
 {
     internal class Program
     {
