@@ -23,10 +23,13 @@
             ProductManager productManager = new ProductManager();
             productManager.Add(product1);
             int sayi = 100;
-            productManager.BiseyYap(sayi);
             Console.WriteLine(sayi);
 
             Console.WriteLine(product1.ProductName);
+
+            productManager.Topla2(3, 5);
+            int toplamaSonucu = productManager.Topla(3, 5);
+            Console.WriteLine(toplamaSonucu*2);
         }
     }
 }
