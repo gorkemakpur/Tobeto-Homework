@@ -4,19 +4,19 @@
     {
         static void Main(string[] args)
         {
-            int sayi1 = 10;
-            int sayi2 = 20;
-            sayi1 = sayi2;
-            sayi2 = 65;
+            //int sayi1 = 10;
+            //int sayi2 = 20;
+            //sayi1 = sayi2;
+            //sayi2 = 65;
 
-            Console.WriteLine(sayi1);
+            //Console.WriteLine(sayi1);
 
-            int[] sayilar1 = new int[] { 10, 20, 30 };
-            int[] sayilar2 = new int[] { 50, 60, 70 };
-            sayilar1 = sayilar2;
-            sayilar2[0] = 30000;
+            //int[] sayilar1 = new int[] { 10, 20, 30 };
+            //int[] sayilar2 = new int[] { 50, 60, 70 };
+            //sayilar1 = sayilar2;
+            //sayilar2[0] = 30000;
 
-            Console.WriteLine(sayilar1[0]);
+            //Console.WriteLine(sayilar1[0]);
 
             Person person1 = new Person();
             Person person2 = new Person();
@@ -26,13 +26,16 @@
             Console.WriteLine(person2.FirstName);
 
             Customer customer = new Customer();
-            customer.FirstName= "Test";
+            customer.FirstName = "Test";
+            customer.CreditNumber = "1234";
             Employee employee = new Employee();
 
             Person person3 = customer;
             person3.FirstName = "Jack";
-            Console.WriteLine(person3.FirstName);
 
+            Console.WriteLine(((Customer)person3).CreditNumber);
+            PersonManager pm = new PersonManager();
+            pm.Add(customer);
 
         }
 
@@ -51,6 +54,15 @@
         class Employee : Person
         {
             public string EmployeeNumber { get; set; }
+        }
+
+
+        class PersonManager
+        {
+            public void Add(Person person)
+            {
+                Console.WriteLine(person.FirstName);
+            }
         }
 
     }
