@@ -6,10 +6,13 @@ namespace Interfaces
     {
         static void Main(string[] args)
         {
-            IPersonManager customerManager = new CustomerManager();
-            customerManager.Add();
-            IPersonManager employeeManager = new EmployeeManager();
-            employeeManager.Add();
+            //IPersonManager customerManager = new CustomerManager();
+            //customerManager.Add();
+            //IPersonManager employeeManager = new EmployeeManager();
+            //employeeManager.Add();
+
+            ProjectManager pm = new ProjectManager(new CustomerManager());
+            pm.Add();
         }
 
         interface IPersonManager
@@ -45,11 +48,29 @@ namespace Interfaces
             }
         }
 
+        class InternManager : IPersonManager
+        {
+            public void Add()
+            {
+                Console.WriteLine("Added");
+            }
+
+            public void Update()
+            {
+                Console.WriteLine("Updated");
+            }
+        }
+
         class ProjectManager
         {
-            public void Add(IPersonManager personManager)
+            IPersonManager _personManager;
+            public ProjectManager(IPersonManager personManager)
             {
-                personManager.Add();
+                _personManager = personManager;
+            }
+            public void Add()
+            {
+                _personManager.Add();
             }
         }
     }
